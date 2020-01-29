@@ -1,0 +1,44 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/** Drop FAQs Table **/
+
+ALTER TABLE {databaseOwner}[{objectQualifier}GIBS_SSRS_Viewer] DROP CONSTRAINT [FK_{objectQualifier}GIBS_SSRS_Viewer_{objectQualifier}Modules]
+GO
+
+ALTER TABLE {databaseOwner}[{objectQualifier}GIBS_SSRS_Viewer] DROP CONSTRAINT [PK_{objectQualifier}GIBS_SSRS_Viewer]
+GO
+
+DROP INDEX {databaseOwner}[{objectQualifier}GIBS_SSRS_Viewer].[IX_{objectQualifier}GIBS_SSRS_Viewer]
+GO
+
+DROP TABLE {databaseOwner}[{objectQualifier}GIBS_SSRS_Viewer]
+GO
+
+/** Drop Stored Procedures **/
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}GIBS_GetSSRS_Viewers]
+GO
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}GIBS_GetSSRS_Viewer]
+GO
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}GIBS_AddSSRS_Viewer]
+GO
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}GIBS_UpdateSSRS_Viewer]
+GO
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}GIBS_DeleteSSRS_Viewer]
+GO
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/
