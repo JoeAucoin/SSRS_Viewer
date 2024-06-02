@@ -9,7 +9,7 @@
       
         
 <dnn:sectionhead id="Sectionhead1" cssclass="Head" runat="server" text="Report Server Settings" section="ReportServerSection"
-	includerule="False" isexpanded="False"></dnn:sectionhead>
+	includerule="True" isexpanded="True"></dnn:sectionhead>
 
 <div id="ReportServerSection" runat="server">   
 

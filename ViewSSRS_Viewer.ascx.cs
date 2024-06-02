@@ -35,7 +35,11 @@ namespace GIBS.Modules.SSRS_Viewer
                 if (Page.IsPostBack == false)
                 {
                     GetSettings();
-                    ShowReport();
+                    if (_ReportCredentialsDomain.ToString().Length > 0)
+                    {
+                        ShowReport();
+                    }
+                    
                 }
             }
             catch (Exception ex)

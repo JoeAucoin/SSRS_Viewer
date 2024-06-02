@@ -1,5 +1,5 @@
 ﻿<dotnetnuke type="Package" version="5.0">
-  <packages><package name="GIBS.SSRS_Viewer" type="Module" version="1.0.2">
+  <packages><package name="GIBS.SSRS_Viewer" type="Module" version="1.0.3">
   <friendlyName>GIBS - SSRS Viewer</friendlyName>
   <description>GIBS - SSRS Viewer</description>
   <iconFile />
@@ -64,6 +64,12 @@
         <basePath>bin</basePath>
         <assembly>
           <name>GIBS.Modules.SSRS_Viewer.dll</name>
+        </assembly>
+        <assembly>
+          <name>Microsoft.ReportViewer.Common.dll</name>
+        </assembly>
+        <assembly>
+          <name>Microsoft.ReportViewer.WebForms.dll</name>
         </assembly>
       </assemblies>
     </component>

@@ -1,9 +1,9 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ViewSSRS_Viewer.ascx.cs" Inherits="GIBS.Modules.SSRS_Viewer.ViewSSRS_Viewer" %>
 
+<!-- Update version to 15.0.0.0 -->
+<%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
 
 
-<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-    Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 
 <div style="text-align:right"><asp:linkbutton cssclass="dnnSecondaryAction" id="cmdReturn" resourcekey="cmdReturn" runat="server" OnClick="cmdReturn_Click" Visible="false" /></div>
 
