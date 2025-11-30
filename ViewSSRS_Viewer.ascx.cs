@@ -54,37 +54,37 @@ namespace GIBS.Modules.SSRS_Viewer
 
             try
             {
-               
-                SSRS_ViewerSettings settingsData = new SSRS_ViewerSettings(this.TabModuleId);
 
+                //   SSRS_ViewerSettings settingsData = new SSRS_ViewerSettings(this.TabModuleId);
 
-
-                if (settingsData.ReportCredentialsDomain != null)
+                if (Settings.Contains("reportCredentialsDomain") && Settings["reportCredentialsDomain"] != null)
                 {
-                    _ReportCredentialsDomain = settingsData.ReportCredentialsDomain.ToString();
-                }
-
-                if (settingsData.ReportCredentialsPassword != null)
-                {
-                    _ReportCredentialsPassword = settingsData.ReportCredentialsPassword.ToString();
-                }
-
-                if (settingsData.ReportCredentialsUserName != null)
-                {
-                    _ReportCredentialsUserName = settingsData.ReportCredentialsUserName.ToString();
-                }
-
-                if (settingsData.ReportPath != null)
-                {
-                    _ReportPath = settingsData.ReportPath.ToString();
-                }
-
-                if (settingsData.ReportServerURL != null)
-                {
-                    _ReportServerURL = settingsData.ReportServerURL.ToString();
+                    _ReportCredentialsDomain = Settings["reportCredentialsDomain"].ToString();
                 }
 
 
+                if (Settings.Contains("reportCredentialsPassword") && Settings["reportCredentialsPassword"] != null)
+                {
+                    _ReportCredentialsPassword = Settings["reportCredentialsPassword"].ToString();
+                }
+
+
+                if (Settings.Contains("reportCredentialsUserName") && Settings["reportCredentialsUserName"] != null)
+                {
+                    _ReportCredentialsUserName = Settings["reportCredentialsUserName"].ToString();
+                }
+
+
+                if (Settings.Contains("reportPath") && Settings["reportPath"] != null)
+                {
+                    _ReportPath = Settings["reportPath"].ToString();
+                }
+
+
+                if (Settings.Contains("reportServerURL") && Settings["reportServerURL"] != null)
+                {
+                    _ReportServerURL = Settings["reportServerURL"].ToString();
+                }
             }
             catch (Exception ex)
             {

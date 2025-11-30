@@ -1,5 +1,5 @@
 ﻿<dotnetnuke type="Package" version="5.0">
-  <packages><package name="GIBS.SSRS_Viewer" type="Module" version="1.0.3">
+  <packages><package name="GIBS.SSRS_Viewer" type="Module" version="1.0.4">
   <friendlyName>GIBS - SSRS Viewer</friendlyName>
   <description>GIBS - SSRS Viewer</description>
   <iconFile />

@@ -1,12 +1,13 @@
-using System;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
+using System;
+using System.Web.UI.WebControls;
 
 using GIBS.SSRS_Viewer.Components;
 
 namespace GIBS.Modules.SSRS_Viewer
 {
-    public partial class Settings : ModuleSettingsBase
+    public partial class Settings : SSRS_ViewerSettings
     {
 
         /// <summary>
@@ -19,31 +20,32 @@ namespace GIBS.Modules.SSRS_Viewer
             {
                 if (!IsPostBack)
                 {
-                    SSRS_ViewerSettings settingsData = new SSRS_ViewerSettings(this.TabModuleId);
 
-                    if (settingsData.ReportServerURL != null)
+                    if (ReportServerURL != null)
                     {
-                        txturlReportServer.Text = settingsData.ReportServerURL.ToString();
+                        txturlReportServer.Text = ReportServerURL;
                     }
 
-                    if (settingsData.ReportPath != null)
+
+                    if (ReportPath != null)
                     {
-                        txtReportPath.Text = settingsData.ReportPath.ToString();
+                        txtReportPath.Text = ReportPath;
                     }
 
-                    if (settingsData.ReportCredentialsUserName != null)
+
+                    if (ReportCredentialsUserName != null)
                     {
-                        txtRSCredentialsUserName.Text = settingsData.ReportCredentialsUserName.ToString();
+                        txtRSCredentialsUserName.Text = ReportCredentialsUserName;
                     }
 
-                    if (settingsData.ReportCredentialsPassword != null)
+                    if (ReportCredentialsPassword != null)
                     {
 
-                        txtRSCredentialsPassword.Text = settingsData.ReportCredentialsPassword.ToString();
+                        txtRSCredentialsPassword.Text = ReportCredentialsPassword;
                     }
-                    if (settingsData.ReportCredentialsDomain != null)
+                    if (ReportCredentialsDomain != null)
                     {
-                        txtRSCredentialsDomain.Text = settingsData.ReportCredentialsDomain.ToString();
+                        txtRSCredentialsDomain.Text = ReportCredentialsDomain;
                     }
                 }
             }
@@ -60,13 +62,12 @@ namespace GIBS.Modules.SSRS_Viewer
         {
             try
             {
-                SSRS_ViewerSettings settingsData = new SSRS_ViewerSettings(this.TabModuleId);
-
-                settingsData.ReportCredentialsDomain = txtRSCredentialsDomain.Text.ToString();
-                settingsData.ReportCredentialsPassword = txtRSCredentialsPassword.Text.ToString();
-                settingsData.ReportCredentialsUserName = txtRSCredentialsUserName.Text.ToString();
-                settingsData.ReportPath = txtReportPath.Text.ToString();
-                settingsData.ReportServerURL = txturlReportServer.Text.ToString();
+               
+                ReportCredentialsDomain = txtRSCredentialsDomain.Text.ToString();
+                ReportCredentialsPassword = txtRSCredentialsPassword.Text.ToString();
+                ReportCredentialsUserName = txtRSCredentialsUserName.Text.ToString();
+                ReportPath = txtReportPath.Text.ToString();
+                ReportServerURL = txturlReportServer.Text.ToString();
 
             }
             catch (Exception ex)

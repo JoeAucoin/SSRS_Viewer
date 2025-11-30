@@ -18,45 +18,15 @@ namespace GIBS.SSRS_Viewer.Components
     /// <summary>
     /// Provides strong typed access to settings used by module
     /// </summary>
-    public class SSRS_ViewerSettings
+    public class SSRS_ViewerSettings : ModuleSettingsBase
     {
-        ModuleController controller;
-        int tabModuleId;
+        //ModuleController controller;
+        //int tabModuleId;
 
-        public SSRS_ViewerSettings(int tabModuleId)
-        {
-            controller = new ModuleController();
-            this.tabModuleId = tabModuleId;
-        }
+       
 
-        protected T ReadSetting<T>(string settingName, T defaultValue)
-        {
-            Hashtable settings = controller.GetTabModuleSettings(this.tabModuleId);
 
-            T ret = default(T);
-
-            if (settings.ContainsKey(settingName))
-            {
-                System.ComponentModel.TypeConverter tc = System.ComponentModel.TypeDescriptor.GetConverter(typeof(T));
-                try
-                {
-                    ret = (T)tc.ConvertFrom(settings[settingName]);
-                }
-                catch
-                {
-                    ret = defaultValue;
-                }
-            }
-            else
-                ret = defaultValue;
-
-            return ret;
-        }
-
-        protected void WriteSetting(string settingName, string value)
-        {
-            controller.UpdateTabModuleSetting(this.tabModuleId, settingName, value);
-        }
+       
 
         #region public properties
 
@@ -64,35 +34,88 @@ namespace GIBS.SSRS_Viewer.Components
         /// get/set template used to render the module content
         /// to the user
         /// </summary>
+       
         public string ReportServerURL
         {
-            get { return ReadSetting<string>("reportServerURL", null); }
-            set { WriteSetting("reportServerURL", value); }
+            get
+            {
+                if (Settings.Contains("reportServerURL"))
+                    return Settings["reportServerURL"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateTabModuleSetting(TabModuleId, "reportServerURL", value.ToString());
+            }
+
         }
 
         public string ReportPath
         {
-            get { return ReadSetting<string>("reportPath", null); }
-            set { WriteSetting("reportPath", value); }
+            get
+            {
+                if (Settings.Contains("reportPath"))
+                    return Settings["reportPath"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateTabModuleSetting(TabModuleId, "reportPath", value.ToString());
+            }
+
         }
 
         public string ReportCredentialsUserName
         {
-            get { return ReadSetting<string>("reportCredentialsUserName", null); }
-            set { WriteSetting("reportCredentialsUserName", value); }
+            get
+            {
+                if (Settings.Contains("reportCredentialsUserName"))
+                    return Settings["reportCredentialsUserName"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateTabModuleSetting(TabModuleId, "reportCredentialsUserName", value.ToString());
+            }
+
         }
 
         public string ReportCredentialsPassword
         {
-            get { return ReadSetting<string>("reportCredentialsPassword", null); }
-            set { WriteSetting("reportCredentialsPassword", value); }
+            get
+            {
+                if (Settings.Contains("reportCredentialsPassword"))
+                    return Settings["reportCredentialsPassword"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateTabModuleSetting(TabModuleId, "reportCredentialsPassword", value.ToString());
+            }
+
         }
 
         public string ReportCredentialsDomain
         {
-            get { return ReadSetting<string>("reportCredentialsDomain", null); }
-            set { WriteSetting("reportCredentialsDomain", value); }
+            get
+            {
+                if (Settings.Contains("reportCredentialsDomain"))
+                    return Settings["reportCredentialsDomain"].ToString();
+                return "";
+            }
+            set
+            {
+                var mc = new ModuleController();
+                mc.UpdateTabModuleSetting(TabModuleId, "reportCredentialsDomain", value.ToString());
+            }
+
         }
+
+
 
 
         #endregion
